@@ -463,7 +463,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1352909889}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.037845492, y: -0.45899153, z: -1.205492}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -481,10 +481,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6204806778a960849a9b3777e5f6b6fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeOnDraw: 1
+  activeOnDraw: 0
   wall: {fileID: 831465138053903083}
-  gridWorldSize: {x: 7, y: 7}
+  gridWorldSize: {x: 5, y: 5}
   nodeRadius: 0.5
+  currentNode: 0
+  nodes: []
 --- !u!1 &1509113964
 GameObject:
   m_ObjectHideFlags: 0
