@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MazeGenerator : MonoBehaviour
 {
+    public bool isDone = false;
 
     public Vector2 gridWorldSize;
     public GameObject wall;
@@ -107,8 +108,18 @@ public class MazeGenerator : MonoBehaviour
             cells[i].wallWest = allWalls[eastAux];
             cells[i].wallNorth = allWalls[(indexChild + (gridSizeX + 1) * gridSizeY) + gridSizeX - 1];
         }
+
+        
     }
 
+    void GetAllNeighbour()
+    {
+        foreach(Cell c in cells)
+        {
+            GetNeighbours(c);
+        }
+        isDone = true;
+    }
     
     void GetNeighbours (Cell currentNode)
     {
@@ -168,6 +179,7 @@ public class MazeGenerator : MonoBehaviour
         CreateWalls();
         CreateCells();
         //GetNeighbours(cells[7]);
+        GetAllNeighbour();
     }
 
     // Update is called once per frame
