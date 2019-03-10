@@ -39,6 +39,12 @@ public class MazeGenerator : MonoBehaviour
 
         
     }
+
+    public Cell GetRandomCell()
+    {
+        int rdn = Random.Range(0, cells.Length);
+        return cells[rdn];
+    }
     void CreateWalls()
     {
         walls = new GameObject();
@@ -96,7 +102,7 @@ public class MazeGenerator : MonoBehaviour
             cells[i].wallSouth = allWalls[indexChild + (gridSizeX + 1) * gridSizeY];
             if(cont == gridSizeX)
             {
-                eastAux += 0;
+                eastAux += 2;
                 cont = 0;
             }
             else
@@ -119,6 +125,90 @@ public class MazeGenerator : MonoBehaviour
             GetNeighbours(c);
         }
         isDone = true;
+    }
+
+    void DestroyWall(GameObject wall)
+    {
+        if(wall != null)
+        {
+            GameObject.Destroy(wall);
+            
+        }
+    }
+
+    public void TestLinkMaze()
+    {
+        LinkMaze(cells[23], cells[24]);
+    }
+
+    public void LinkMaze(Cell currentCell, Cell neighborCell)
+    {
+
+        bool wallDestroyed = false;
+
+        int checkNode = 0;
+        // int indexNeighbours = 0;
+        checkNode = ( currentCell.num + 1) / gridSizeX;
+        checkNode -= 1;
+        checkNode *= gridSizeX;
+        checkNode += gridSizeX;
+
+
+        while (!wallDestroyed)
+        {
+            if(neighborCell != null)
+            {
+                //North
+                if (currentCell.num + gridSizeX == neighborCell.num)
+                {
+                    DestroyWall(currentCell.wallNorth);
+                    DestroyWall(neighborCell.wallSouth);
+                    currentCell.wallNorth = null;
+                    neighborCell.wallSouth = null;
+                    wallDestroyed = true;
+                }
+                //South
+                else if (currentCell.num - gridSizeX == neighborCell.num)
+                {
+
+                    DestroyWall(currentCell.wallSouth);
+                    DestroyWall(neighborCell.wallNorth);
+
+                    currentCell.wallSouth = null;
+                    neighborCell.wallNorth = null;
+
+
+                    wallDestroyed = true;
+                }
+
+                //West
+                else if (currentCell.num + 1 == neighborCell.num)
+                {
+
+                    DestroyWall(currentCell.wallWest);
+                    DestroyWall(neighborCell.wallEast);
+                    currentCell.wallWest = null;
+                    neighborCell.wallEast = null;
+                    wallDestroyed = true;
+                }
+                //east
+                else if (currentCell.num - 1 ==neighborCell.num)
+                {
+
+                    DestroyWall(currentCell.wallEast);
+                    DestroyWall(neighborCell.wallWest);
+                    currentCell.wallEast = null;
+                    neighborCell.wallWest = null;
+                    wallDestroyed = true;
+                }
+            }
+            else
+            {
+                break;
+            }
+            
+        }
+       
     }
     
     void GetNeighbours (Cell currentNode)
