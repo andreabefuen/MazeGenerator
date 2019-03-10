@@ -82,7 +82,6 @@ public class MazeGenerator : MonoBehaviour
         allWalls = new GameObject[totalWalls];
     }
 
-
     void CreateCells()
     {
 
