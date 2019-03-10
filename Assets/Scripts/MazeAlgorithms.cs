@@ -25,7 +25,7 @@ public class MazeAlgorithms : MonoBehaviour
         currentCell = mazeGenerator.GetRandomCell();
     }
 
-    void DestroyNorthWall(Cell currentCell)
+    /*void DestroyNorthWall(Cell currentCell)
     {
         if(currentCell.wallNorth != null)
         {
@@ -33,7 +33,7 @@ public class MazeAlgorithms : MonoBehaviour
             Destroy(aux);
         }
     
-    }
+    }*/
 
     void Hunt()
     {
@@ -248,12 +248,12 @@ public class MazeAlgorithms : MonoBehaviour
         
     }
 
-    public void DestroyNorthButton()
+    /*public void DestroyNorthButton()
     {
         DestroyNorthWall(mazeGenerator.cells[cont]);
         int aux = mazeGenerator.cells[cont].neighbourNorth.num;
         cont = aux;
-    }
+    }*/
     // Update is called once per frame
     void Update()
     {
