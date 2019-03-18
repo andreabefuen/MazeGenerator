@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MazeAlgorithms : MonoBehaviour
 {
+
+    //HUNT AND KILL ALGORITHM
     public GameObject maze;
     public MazeGenerator mazeGenerator;
 
@@ -24,7 +26,7 @@ public class MazeAlgorithms : MonoBehaviour
 
         currentCell = mazeGenerator.GetRandomCell();
     }
-
+    //Destroy the north wall, only testing
     /*void DestroyNorthWall(Cell currentCell)
     {
         if(currentCell.wallNorth != null)
@@ -35,20 +37,8 @@ public class MazeAlgorithms : MonoBehaviour
     
     }*/
 
-    void Hunt()
-    {
-        courseCompleted = true;
-        foreach(Cell c in mazeGenerator.cells)
-        {
-            if(c.visited == false && CellHasAdjacentVisitedCells(c))
-            {
-                courseCompleted = false;
-                mazeGenerator.LinkMaze(c, neighbourCell);
-                c.visited = true;
-                return;
-            }
-        }
-    }
+
+    //This is the start of the algorithm, its call when you hit the HuntAndKill button
     public void HKAlgorithm()
     {
         
@@ -58,7 +48,7 @@ public class MazeAlgorithms : MonoBehaviour
             Debug.Log("Se aacabo");
         }
     }
-    
+    //KILL PHASE
     public void KillAlgorithm()
     {
         
@@ -100,7 +90,7 @@ public class MazeAlgorithms : MonoBehaviour
             HuntAlgorithm();
         }
     }
-
+    //HUNT PHASE
     public void HuntAlgorithm()
     {
         courseCompleted = true;
@@ -116,56 +106,6 @@ public class MazeAlgorithms : MonoBehaviour
         }
     }
 
-
-
-    public void HuntAndKillAlgorithm()
-    {
-        HuntAndKill();
-        
-    }
-
-    void HuntAndKill()
-    {
-        while (!courseCompleted)
-        {
-            Kill();
-            Hunt();
-        }
-    }
-
-    void Kill()
-    {
-
-        List<Cell> neighbours = new List<Cell>();
-        if(currentCell.neighbourEast != null)
-        {
-            neighbours.Add(currentCell.neighbourEast);
-        }
-        if (currentCell.neighbourNorth != null)
-        {
-            neighbours.Add(currentCell.neighbourNorth);
-        }
-        if (currentCell.neighbourSouth != null)
-        {
-            neighbours.Add(currentCell.neighbourEast);
-        }
-        if (currentCell.neighbourWest != null)
-        {
-            neighbours.Add(currentCell.neighbourWest);
-        }
-
-        int index = Random.Range(0, neighbours.Count - 1);
-        neighbourCell = neighbours[index];
-
-        while (RouteAvaibles(currentCell))
-        {
-            if(CellAvaible(neighbourCell))
-            {
-                mazeGenerator.LinkMaze(currentCell, neighbourCell);
-            }
-            currentCell.visited = true;
-        }
-    }
 
     bool CellAvaible(Cell c)
     {

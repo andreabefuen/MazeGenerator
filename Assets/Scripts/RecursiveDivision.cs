@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RecursiveDivision : MonoBehaviour
 {
-
+    //------------------------------NOT FINISHED YET--------------------------------------------
     public Vector2 gridWorldSize;
     public GameObject wall;
     public GameObject floorCell;

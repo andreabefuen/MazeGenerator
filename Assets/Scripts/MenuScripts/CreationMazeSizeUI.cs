@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+//Class for the UI elements and gameloop
+
 public class CreationMazeSizeUI : MonoBehaviour
 {
 
@@ -13,6 +16,7 @@ public class CreationMazeSizeUI : MonoBehaviour
     public GameObject secondPanel;
 
     public GameObject player;
+    public GameObject goal;
 
 
     MazeGenerator mazeGenerator;
@@ -48,6 +52,10 @@ public class CreationMazeSizeUI : MonoBehaviour
     }
     public void MinusRowButton()
     {
+        if(rows == 5)
+        {
+            return;
+        }
         rows--;
         mazeGenerator.gridWorldSize.x = rows;
         UpdateText();
@@ -64,6 +72,10 @@ public class CreationMazeSizeUI : MonoBehaviour
 
     public void MinusColumnButton()
     {
+        if(columns == 5)
+        {
+            return;
+        }
         columns--;
         mazeGenerator.gridWorldSize.y = columns;
         UpdateText();
@@ -94,6 +106,10 @@ public class CreationMazeSizeUI : MonoBehaviour
         Vector3 pos = mazeGenerator.cells[0].wallSouth.transform.position;
         pos.z += 1f;
         Instantiate(player, pos, Quaternion.identity);
+
+        Vector3 posGoal = mazeGenerator.cells[mazeGenerator.cells.Length - 1].wallNorth.transform.position;
+        posGoal.z -= 1f;
+        Instantiate(goal, posGoal, Quaternion.identity);
     }
 
     // Start is called before the first frame update

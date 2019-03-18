@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+//THE GENERATOR OF THE MAZE
+
 public class MazeGenerator : MonoBehaviour
 {
     public bool isDone = false;
@@ -210,7 +213,7 @@ public class MazeGenerator : MonoBehaviour
         }
        
     }
-    
+    //Get all the neighbours of the current cell
     void GetNeighbours (Cell currentNode)
     {
         int checkNode = 0;
@@ -261,7 +264,7 @@ public class MazeGenerator : MonoBehaviour
         
 
     }
-
+    //Reload the scene
     public void RestartMaze()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -276,7 +279,7 @@ public class MazeGenerator : MonoBehaviour
         //GetNeighbours(cells[7]);
         GetAllNeighbour();
     }
-
+    //Recreate the maze if we change the size of the maze
     public void RecreateMazeWithDifferentSize()
     {
         Destroy(GameObject.Find("Maze"));

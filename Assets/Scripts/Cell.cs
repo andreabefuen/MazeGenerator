@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//This class contains all the things that our cells needs
+//I want to store many information because its easier to access for the algorithms
+
+
 [System.Serializable]
 public class Cell :ScriptableObject
 {

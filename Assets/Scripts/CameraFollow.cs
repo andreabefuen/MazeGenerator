@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Typical script to follow the player or another gameobject
+
 public class CameraFollow : MonoBehaviour
 {
     public GameObject player;       //Public variable to store a reference to the player game object

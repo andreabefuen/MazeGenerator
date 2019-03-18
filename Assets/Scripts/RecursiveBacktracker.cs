@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class RecursiveBacktracker : MonoBehaviour
 {
+   
 
     public GameObject maze;
     public MazeGenerator mazeGenerator;

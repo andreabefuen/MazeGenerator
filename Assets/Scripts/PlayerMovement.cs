@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody rigid;
 
+    
+
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
@@ -25,6 +27,14 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 movement = new Vector3(horizontal, 0f, vertical);
         rigid.position += movement * speed * Time.deltaTime;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Goal")
+        {
+            Debug.Log("YOU FINISH");
+        }
     }
 }
 
