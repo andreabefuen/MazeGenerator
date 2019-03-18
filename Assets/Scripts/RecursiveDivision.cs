@@ -138,7 +138,7 @@ public class RecursiveDivision : MonoBehaviour
 
         List<GameObject> division = new List<GameObject>();
 
-        int rdn = Random.Range(1, height);
+        int rdn = Random.Range(0, height);
         for (int i = 0; i < height; i++)
         {
             actualPos = new Vector3(initialPos.x + (rdn * nodeDiameter) - nodeRadius, 0f, initialPos.z + (i * nodeDiameter) - nodeRadius);
@@ -147,11 +147,17 @@ public class RecursiveDivision : MonoBehaviour
             actualWall.transform.parent = walls.transform;
             division.Add(actualWall);
         }
-      // if (division.Count >= 1)
-      // {
-      //     int index = Random.Range(0, division.Count - 1);
-      //     Destroy(division[index]);
-      // }
+        if(division.Count>= 1)
+        {
+            int index = Random.Range(0, rdn);
+            Destroy(division[index]);
+        }
+
+        // if (division.Count >= 1)
+        // {
+        //     int index = Random.Range(0, division.Count - 1);
+        //     Destroy(division[index]);
+        // }
 
         // RecursiveDivisionAlgorithm(width, rdn);
         // RecursiveDivisionAlgorithm(width, height - rdn);
@@ -180,7 +186,7 @@ public class RecursiveDivision : MonoBehaviour
         bool removeWall = false;
 
 
-        int rdn = Random.Range(1, width);
+        int rdn = Random.Range(0, width);
 
         for (int i = 0; i < height; i++)
         {
@@ -193,11 +199,11 @@ public class RecursiveDivision : MonoBehaviour
 
         }
 
-     //if (division.Count >= 1)
-     //{
-     //    int index = Random.Range(0, division.Count - 1);
-     //    Destroy(division[index]);
-     //}
+        if (division.Count >= 1)
+        {
+            int index = Random.Range(0, rdn);
+            Destroy(division[index]);
+        }
         // RecursiveDivisionAlgorithm(rdn, height);
         // RecursiveDivisionAlgorithm(width - rdn, height);
         //return (CreateDivisionHorizontal(rdn, height) && CreateDivisionHorizontal(width - rdn - 1, height)) ;

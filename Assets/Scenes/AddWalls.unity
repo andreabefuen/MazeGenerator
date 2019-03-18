@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
-  gridWorldSize: {x: 100, y: 100}
+  gridWorldSize: {x: 10, y: 10}
   wall: {fileID: 831465138053903083, guid: 87a39102797d81545b224854ed954f6c, type: 3}
   floorCell: {fileID: 5523141703158857358, guid: 2dbb1ca0f2772934b82e38a7413c6d25,
     type: 3}
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ffda8dab3ecd047a6218166e7ed4ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridWorldSize: {x: 20, y: 20}
+  gridWorldSize: {x: 5, y: 5}
   wall: {fileID: 831465138053903083, guid: 87a39102797d81545b224854ed954f6c, type: 3}
   floorCell: {fileID: 5523141703158857358, guid: 2dbb1ca0f2772934b82e38a7413c6d25,
     type: 3}

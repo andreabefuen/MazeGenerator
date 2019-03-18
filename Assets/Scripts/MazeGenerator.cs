@@ -277,6 +277,27 @@ public class MazeGenerator : MonoBehaviour
         GetAllNeighbour();
     }
 
+    public void RecreateMazeWithDifferentSize()
+    {
+        Destroy(GameObject.Find("Maze"));
+
+        nodeDiameter = nodeRadius * 2;
+
+        gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
+        gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
+
+        wall.gameObject.transform.localScale = new Vector3(wall.transform.localScale.x, wall.transform.localScale.y, nodeDiameter);
+        floorCell.gameObject.transform.localScale = new Vector3(nodeDiameter, floorCell.transform.localScale.y, nodeDiameter);
+
+        totalNodes = gridSizeX * gridSizeY;
+        cells = new Cell[totalNodes];
+
+        CreateWalls();
+        CreateCells();
+        GetAllNeighbour();
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
