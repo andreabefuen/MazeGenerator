@@ -121,6 +121,8 @@ public class CreationMazeSizeUI : MonoBehaviour
         Vector3 posGoal = mazeGenerator.cells[mazeGenerator.cells.Length - 1].wallNorth.transform.position;
         posGoal.z -= 1f;
         Instantiate(goal, posGoal, Quaternion.identity);
+
+        secondPanel.SetActive(false);
     }
 
     public void WinCanvas()
