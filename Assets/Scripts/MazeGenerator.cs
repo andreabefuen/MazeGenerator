@@ -30,6 +30,7 @@ public class MazeGenerator : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1;
         nodeDiameter = nodeRadius * 2;
 
         gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);

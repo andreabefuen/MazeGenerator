@@ -79,6 +79,8 @@ public class RecursiveBacktracker : MonoBehaviour
     public void RecursiveBacktrackerAlgorithm()
     {
 
+        this.gameObject.GetComponent<CreationMazeSizeUI>().InteractablePlayButton();
+
         currentCell = mazeGenerator.GetRandomCell();
 
         RecursiveBTA();

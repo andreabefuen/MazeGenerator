@@ -18,6 +18,9 @@ public class CreationMazeSizeUI : MonoBehaviour
     public GameObject player;
     public GameObject goal;
 
+    public GameObject winCanvas;
+
+    public Button playButton;
 
     MazeGenerator mazeGenerator;
 
@@ -94,6 +97,14 @@ public class CreationMazeSizeUI : MonoBehaviour
         secondPanel.SetActive(true);
         this.GetComponent<MazeAlgorithms>().enabled = true;
         this.GetComponent<RecursiveBacktracker>().enabled = true;
+        playButton.interactable = false;
+        
+    }
+
+    public void InteractablePlayButton()
+    {
+        playButton.interactable = true;
+
     }
 
     public void GoToMyWeb()
@@ -110,6 +121,11 @@ public class CreationMazeSizeUI : MonoBehaviour
         Vector3 posGoal = mazeGenerator.cells[mazeGenerator.cells.Length - 1].wallNorth.transform.position;
         posGoal.z -= 1f;
         Instantiate(goal, posGoal, Quaternion.identity);
+    }
+
+    public void WinCanvas()
+    {
+        winCanvas.SetActive(true);
     }
 
     // Start is called before the first frame update

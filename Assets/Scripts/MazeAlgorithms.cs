@@ -41,11 +41,11 @@ public class MazeAlgorithms : MonoBehaviour
     //This is the start of the algorithm, its call when you hit the HuntAndKill button
     public void HKAlgorithm()
     {
-        
+        this.gameObject.GetComponent<CreationMazeSizeUI>().InteractablePlayButton();
         KillAlgorithm();
         if(courseCompleted == true)
         {
-            Debug.Log("Se aacabo");
+            Debug.Log("Finish!");
         }
     }
     //KILL PHASE
